@@ -1,7 +1,23 @@
 import { Slot, Stack, Tabs } from 'expo-router';
 
+import { ThemeProvider, DarkTheme } from '@react-navigation/native'
+
+
+const myTheme = {
+  ...DarkTheme,
+  colors: {
+    ...DarkTheme.colors,
+    primary: 'rgb(77, 236, 59)',
+  }
+}
+
 export default function RootLayout(){
     console.log('RootLayout rendered');
   // This is the root layout component for the app.
-    return <Slot />;
+
+    return (
+      <ThemeProvider value={myTheme}>
+        <Slot />
+      </ThemeProvider>
+    )
 }
