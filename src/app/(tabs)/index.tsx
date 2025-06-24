@@ -4,10 +4,10 @@ import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Hello, World! 👋</Text>
-      <StatusBar style="auto" />
-      <Link href="/welcome" style={{ marginTop: 20 }}>Go to Welcome</Link>        
+    <View className="flex-1 items-center justify-center bg-white">
+      <Text className="text-2xl font-bold text-pink-500">
+        Feed
+      </Text>
     </View>
   );
 }
