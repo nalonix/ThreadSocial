@@ -1,21 +1,12 @@
-import { Link } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import Button from '@/components/Button';
+import {  Text, View } from 'react-native';
 
-export default function App() {
+export default function HomeScreen() {
   return (
-    <View className="flex-1 items-center justify-center bg-white">
-      <Text className="text-2xl font-bold text-pink-500">
+    <View className="flex-1 p-4">
+      <Text className="text-3xl font-bold text-white">
         Feed
       </Text>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
-});

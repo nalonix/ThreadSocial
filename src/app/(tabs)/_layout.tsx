@@ -2,6 +2,8 @@ import { Tabs } from "expo-router";
 import { Feather } from "@expo/vector-icons";
 
 export default function TabsLayout(){
+    console.info('TabsLayout rendered');
+
     return (
     <Tabs screenOptions={{ tabBarShowLabel: false}}>
         <Tabs.Screen 

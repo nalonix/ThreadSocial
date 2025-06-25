@@ -4,7 +4,6 @@ import { Slot } from 'expo-router';
 
 import { ThemeProvider, DarkTheme } from '@react-navigation/native'
 
-
 const myTheme = {
   ...DarkTheme,
   colors: {
@@ -14,7 +13,7 @@ const myTheme = {
 }
 
 export default function RootLayout(){
-    console.log('RootLayout rendered');
+    console.info('RootLayout rendered');
   // This is the root layout component for the app.
 
     return (
