@@ -14,7 +14,6 @@ const myTheme = {
 
 export default function RootLayout(){
     console.info('RootLayout rendered');
-  // This is the root layout component for the app.
 
     return (
       <ThemeProvider value={myTheme}>
