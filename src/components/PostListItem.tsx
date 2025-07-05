@@ -10,24 +10,21 @@ export default function PostListItem({ post }: { post: Post }) {
     // Placeholder counts for likes and reposts
     const likeCount = 0;
     const repostCount = 0;
-    const replyCount = post.replies.length;
+    const replyCount = post.replies?.length || 0;
 
     return (
         <View className="flex-row items-start px-4 py-3 border-b border-gray-800 bg-black">
             <Image
-                source={{ uri: post.user.image }}
+                source={{ uri: post.user.avatar_url }}
                 className="w-10 h-10 rounded-full mr-3 mt-1"
             />
             <View className="flex-1">
                 <View className="flex-row items-center">
                     <Text className="font-semibold text-base text-gray-100 mr-2">{post.user.username}</Text>
                     <Text className="text-gray-600 text-xs ml-2">
-                        • {dayjs(post.createdAt).fromNow()}
+                        • {dayjs(post.created_at).fromNow()}
                     </Text>
                 </View>
-                {post.title ? (
-                    <Text className="font-semibold text-gray-200 mt-1">{post.title}</Text>
-                ) : null}
                 <Text className="text-gray-300 mt-1">{post.content}</Text>
                 <View className="flex-row mt-3 gap-5 space-x-7">
                     <TouchableOpacity className="flex-row items-center">

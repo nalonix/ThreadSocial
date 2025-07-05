@@ -6,35 +6,35 @@ export const users: User[] = [
         username: 'alice',
         name: 'Alice Smith',
         bio: 'Coffee lover. Cat person.',
-        image: 'https://randomuser.me/api/portraits/women/1.jpg',
+        avatar_url: 'https://randomuser.me/api/portraits/women/1.jpg',
     },
     {
         id: 'u2',
         username: 'bob',
         name: 'Bob Johnson',
         bio: 'Full-stack dev & gamer.',
-        image: 'https://randomuser.me/api/portraits/men/2.jpg',
+        avatar_url: 'https://randomuser.me/api/portraits/men/2.jpg',
     },
     {
         id: 'u3',
         username: 'carol',
         name: 'Carol Lee',
         bio: 'Photographer & traveler.',
-        image: 'https://randomuser.me/api/portraits/women/3.jpg',
+        avatar_url: 'https://randomuser.me/api/portraits/women/3.jpg',
     },
     {
         id: 'u4',
         username: 'dan',
         name: 'Dan Brown',
         bio: 'Writer. Dreamer.',
-        image: 'https://randomuser.me/api/portraits/men/4.jpg',
+        avatar_url: 'https://randomuser.me/api/portraits/men/4.jpg',
     },
     {
         id: 'u5',
         username: 'eve',
         name: 'Eve Adams',
         bio: 'Tech enthusiast.',
-        image: 'https://randomuser.me/api/portraits/women/5.jpg',
+        avatar_url: 'https://randomuser.me/api/portraits/women/5.jpg',
     },
 ];
 
@@ -44,9 +44,8 @@ const getUser = (id: string) => users.find(u => u.id === id)!;
 export const posts: Post[] = [
     {
         id: 'p1',
-        title: 'Hello World',
         content: 'This is my first post! I finally figured out how to turn on my computer. Next step: world domination.',
-        createdAt: new Date('2024-06-01T10:00:00Z'),
+        created_at: new Date('2024-06-01T10:00:00Z'),
         authorId: 'u1',
         user: getUser('u1'),
         parentId: null,
@@ -55,9 +54,8 @@ export const posts: Post[] = [
     },
     {
         id: 'p2',
-        title: 'React Native Tips',
         content: 'Here are some tips for React Native development: 1) Don’t forget to shake your phone, it’s not mad at you. 2) If it doesn’t work, try turning it off and on again. 3) Coffee helps.',
-        createdAt: new Date('2025-06-01T11:00:00Z'),
+        created_at: new Date('2025-06-01T11:00:00Z'),
         authorId: 'u2',
         user: getUser('u2'),
         parentId: null,
@@ -66,9 +64,8 @@ export const posts: Post[] = [
     },
     {
         id: 'p3',
-        title: 'Travel Diaries',
         content: 'Just got back from Japan! Ate sushi, saw Mt. Fuji, and accidentally joined a sumo wrestling class. 10/10 would recommend.',
-        createdAt: new Date('2024-06-01T12:00:00Z'),
+        created_at: new Date('2024-06-01T12:00:00Z'),
         authorId: 'u3',
         user: getUser('u3'),
         parentId: null,
@@ -77,9 +74,8 @@ export const posts: Post[] = [
     },
     {
         id: 'p4',
-        title: 'Book Recommendations',
         content: 'Check out these amazing books: "How to Survive Without WiFi", "JavaScript for Cats", and "The Art of Procrastination".',
-        createdAt: new Date('2025-06-01T13:00:00Z'),
+        created_at: new Date('2025-06-01T13:00:00Z'),
         authorId: 'u4',
         user: getUser('u4'),
         parentId: null,
@@ -88,9 +84,8 @@ export const posts: Post[] = [
     },
     {
         id: 'p5',
-        title: 'Tech News',
         content: 'Latest updates in tech: AI is taking over, robots are learning to dance, and my toaster just asked for a software update.',
-        createdAt: new Date('2025-06-01T14:00:00Z'),
+        created_at: new Date('2025-06-01T14:00:00Z'),
         authorId: 'u5',
         user: getUser('u5'),
         parentId: null,
@@ -100,9 +95,8 @@ export const posts: Post[] = [
     // Replies to p1
     {
         id: 'p6',
-        title: '',
         content: 'Welcome to the platform! Don’t worry, we all started by accidentally liking our own posts.',
-        createdAt: new Date('2024-06-01T15:00:00Z'),
+        created_at: new Date('2024-06-01T15:00:00Z'),
         authorId: 'u2',
         user: getUser('u2'),
         parentId: 'p1',
@@ -111,9 +105,8 @@ export const posts: Post[] = [
     },
     {
         id: 'p7',
-        title: '',
         content: 'Nice to see you here! Pro tip: If you break something, just blame it on the intern.',
-        createdAt: new Date('2025-06-01T15:05:00Z'),
+        created_at: new Date('2025-06-01T15:05:00Z'),
         authorId: 'u3',
         user: getUser('u3'),
         parentId: 'p1',
@@ -123,9 +116,8 @@ export const posts: Post[] = [
     // Replies to p2
     {
         id: 'p8',
-        title: '',
         content: 'Thanks for the tips! I tried shaking my phone and now my cat thinks it’s a toy.',
-        createdAt: new Date('2024-06-01T16:00:00Z'),
+        created_at: new Date('2024-06-01T16:00:00Z'),
         authorId: 'u1',
         user: getUser('u1'),
         parentId: 'p2',
@@ -134,9 +126,8 @@ export const posts: Post[] = [
     },
     {
         id: 'p9',
-        title: '',
         content: 'Very helpful. Also, is there a React Native tip for making coffee?',
-        createdAt: new Date('2024-06-01T16:10:00Z'),
+        created_at: new Date('2024-06-01T16:10:00Z'),
         authorId: 'u5',
         user: getUser('u5'),
         parentId: 'p2',
@@ -146,9 +137,8 @@ export const posts: Post[] = [
     // Replies to p3
     {
         id: 'p10',
-        title: '',
         content: 'Japan is on my bucket list! Did you try karaoke? I hear it’s a rite of passage.',
-        createdAt: new Date('2025-06-01T17:00:00Z'),
+        created_at: new Date('2025-06-01T17:00:00Z'),
         authorId: 'u4',
         user: getUser('u4'),
         parentId: 'p3',
@@ -158,9 +148,8 @@ export const posts: Post[] = [
     // Replies to p6 (nested reply)
     {
         id: 'p11',
-        title: '',
         content: 'Thank you! I’ll try not to break the internet (again).',
-        createdAt: new Date('2024-06-01T17:10:00Z'),
+        created_at: new Date('2024-06-01T17:10:00Z'),
         authorId: 'u1',
         user: getUser('u1'),
         parentId: 'p6',
@@ -170,9 +159,8 @@ export const posts: Post[] = [
     // More top-level posts
     {
         id: 'p12',
-        title: 'Photography Tips',
         content: 'How to take better photos: 1) Clean your lens. 2) Don’t drop your camera. 3) If all else fails, add a filter and call it "artsy".',
-        createdAt: new Date('2025-06-01T18:00:00Z'),
+        created_at: new Date('2025-06-01T18:00:00Z'),
         authorId: 'u3',
         user: getUser('u3'),
         parentId: null,
@@ -181,9 +169,8 @@ export const posts: Post[] = [
     },
     {
         id: 'p13',
-        title: 'Favorite Movies',
         content: 'What are your favorite movies? Mine is "Debugging: The Movie". It’s a real thriller.',
-        createdAt: new Date('2024-06-01T19:00:00Z'),
+        created_at: new Date('2024-06-01T19:00:00Z'),
         authorId: 'u4',
         user: getUser('u4'),
         parentId: null,
@@ -192,9 +179,8 @@ export const posts: Post[] = [
     },
     {
         id: 'p14',
-        title: 'Healthy Recipes',
         content: 'Share your best healthy recipes! Bonus points if it involves chocolate and zero effort.',
-        createdAt: new Date('2025-06-01T20:00:00Z'),
+        created_at: new Date('2025-06-01T20:00:00Z'),
         authorId: 'u5',
         user: getUser('u5'),
         parentId: null,
@@ -203,9 +189,8 @@ export const posts: Post[] = [
     },
     {
         id: 'p15',
-        title: 'Weekend Plans',
         content: 'What are you doing this weekend? I’m planning to nap so hard I wake up in a different timezone.',
-        createdAt: new Date('2025-06-01T21:00:00Z'),
+        created_at: new Date('2025-06-01T21:00:00Z'),
         authorId: 'u2',
         user: getUser('u2'),
         parentId: null,
@@ -214,9 +199,8 @@ export const posts: Post[] = [
     },
     {
         id: 'p16',
-        title: 'Pet Antics',
         content: 'My cat just tried to code by walking across my keyboard. Now my project won’t compile, but at least it purrs.',
-        createdAt: new Date('2024-06-01T22:00:00Z'),
+        created_at: new Date('2024-06-01T22:00:00Z'),
         authorId: 'u1',
         user: getUser('u1'),
         parentId: null,
@@ -225,9 +209,8 @@ export const posts: Post[] = [
     },
     {
         id: 'p17',
-        title: 'Coffee or Tea?',
         content: 'Serious debate: Coffee or tea? I tried both at once and now I can see sounds.',
-        createdAt: new Date('2024-06-01T22:30:00Z'),
+        created_at: new Date('2024-06-01T22:30:00Z'),
         authorId: 'u2',
         user: getUser('u2'),
         parentId: null,
@@ -236,9 +219,8 @@ export const posts: Post[] = [
     },
     {
         id: 'p18',
-        title: 'Coding Playlist',
         content: 'What’s on your coding playlist? Mine is just the sound of my computer fan and existential dread.',
-        createdAt: new Date('2024-06-01T23:00:00Z'),
+        created_at: new Date('2024-06-01T23:00:00Z'),
         authorId: 'u3',
         user: getUser('u3'),
         parentId: null,
@@ -247,9 +229,8 @@ export const posts: Post[] = [
     },
     {
         id: 'p19',
-        title: 'Dream Vacation',
         content: 'If you could go anywhere, where would you go? I’d go to a land where bugs fix themselves.',
-        createdAt: new Date('2024-06-01T23:30:00Z'),
+        created_at: new Date('2024-06-01T23:30:00Z'),
         authorId: 'u4',
         user: getUser('u4'),
         parentId: null,
@@ -258,9 +239,8 @@ export const posts: Post[] = [
     },
     {
         id: 'p20',
-        title: 'Late Night Coding',
         content: 'It’s 2am and my code finally works. I have no idea why, but I’m not touching anything.',
-        createdAt: new Date('2025-03-02T00:00:00Z'),
+        created_at: new Date('2025-03-02T00:00:00Z'),
         authorId: 'u5',
         user: getUser('u5'),
         parentId: null,
@@ -269,9 +249,8 @@ export const posts: Post[] = [
     },
     {
         id: 'p21',
-        title: 'Best App Idea',
         content: 'Pitch your wildest app idea! Mine is an app that reminds you to stop checking your phone.',
-        createdAt: new Date('2024-06-02T00:30:00Z'),
+        created_at: new Date('2024-06-02T00:30:00Z'),
         authorId: 'u1',
         user: getUser('u1'),
         parentId: null,
@@ -280,9 +259,8 @@ export const posts: Post[] = [
     },
     {
         id: 'p22',
-        title: 'Unpopular Opinions',
         content: 'Unpopular opinion: Tabs are better than spaces. Fight me (gently, with words).',
-        createdAt: new Date('2024-06-02T01:00:00Z'),
+        created_at: new Date('2024-06-02T01:00:00Z'),
         authorId: 'u2',
         user: getUser('u2'),
         parentId: null,
@@ -291,9 +269,8 @@ export const posts: Post[] = [
     },
     {
         id: 'p23',
-        title: 'Morning Routine',
         content: 'My morning routine: Wake up, hit snooze, dream about breakfast, finally get up when my cat sits on my face.',
-        createdAt: new Date('2024-06-02T01:30:00Z'),
+        created_at: new Date('2024-06-02T01:30:00Z'),
         authorId: 'u3',
         user: getUser('u3'),
         parentId: null,
@@ -302,9 +279,8 @@ export const posts: Post[] = [
     },
     {
         id: 'p24',
-        title: 'Strange Dreams',
         content: 'Last night I dreamed my code compiled on the first try. Wild, right?',
-        createdAt: new Date('2024-06-02T02:00:00Z'),
+        created_at: new Date('2024-06-02T02:00:00Z'),
         authorId: 'u4',
         user: getUser('u4'),
         parentId: null,
@@ -313,9 +289,8 @@ export const posts: Post[] = [
     },
     {
         id: 'p25',
-        title: 'Life Hack',
         content: 'Life hack: If you can’t find your keys, check the fridge. If you find cheese, you’re in the right place.',
-        createdAt: new Date('2024-06-02T02:30:00Z'),
+        created_at: new Date('2024-06-02T02:30:00Z'),
         authorId: 'u5',
         user: getUser('u5'),
         parentId: null,

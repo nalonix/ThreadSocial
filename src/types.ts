@@ -3,14 +3,13 @@ export type User = {
     username: string;
     name: string;
     bio: string;
-    image: string;
+    avatar_url: string;
 }
 
 export type Post = {
     id: string;
-    title: string;
     content: string;
-    createdAt: Date;
+    created_at: Date;
     
     authorId: string;
     user: User;
