@@ -3,6 +3,7 @@ import { Session, User } from '@supabase/supabase-js';
 import { supabase } from '../lib/supabase'; // Adjust the import path as needed
 import { Activity, View } from 'lucide-react-native';
 import { ActivityIndicator } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 // 1. AuthContextType and AuthContext
 export type AuthContextType = {
@@ -25,9 +26,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         // Get initial session
         const session = supabase.auth.getSession().then(({ data }) => {
             setUser(data.session?.user ?? null);
-            if (data.session) {
-                setIsLoading(false);
-            }
+            setIsLoading(false);
+            
+            
         });
 
         // Listen for auth state changes
@@ -47,9 +48,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
     // Set loading to false after initial session is fetched
     if(isLoading) {
-        return (<View>
-            <ActivityIndicator size="large" />
-        </View>)
+        return (
+            <SafeAreaView className='w-full h-full flex items-center justify-center bg-black'>
+                <ActivityIndicator size="large" color="white" />
+            </SafeAreaView>
+        )
     }
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
