@@ -15,7 +15,7 @@ export default function NewPostScreen() {
           placeholderTextColor="#888"
           onChangeText={setText}  
         />
-
+      
       <View>
         <Pressable 
           onPress={() => console.log('Post submitted 👉', text)}
