@@ -1,21 +1,27 @@
-import { Keyboard, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
+import { Alert, Keyboard, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
 import React from 'react'
 import { Link } from 'expo-router'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { supabase } from '@/lib/supabase';
 
 export default function signup() {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
+    const [loading, setLoading] = React.useState(false);
 
-    // Function to handle the sign-up logic
-    const handleSignUp = () => {
-        // Here you would typically call your sign-up API
-        console.log('Signing up with:', { email, password });
-        // Reset fields after sign-up
-        setEmail('');
-        setPassword('');
-    };
 
+    async function signUpWithEmail() {
+        setLoading(true)
+        const {
+        data: { session },
+        error,
+        } = await supabase.auth.signUp({
+        email: email,
+        password: password,
+        })
+        if (error) Alert.alert(error.message)
+        if (!session) Alert.alert('Please check your inbox for email verification!')
+        setLoading(false)
+    }
     
   return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
@@ -42,7 +48,7 @@ export default function signup() {
           value={password}
           onChangeText={setPassword}
         />
-        <TouchableOpacity className="bg-white rounded-lg py-3 mb-4" onPress={handleSignUp}>
+        <TouchableOpacity className="bg-white rounded-lg py-3 mb-4" onPress={signUpWithEmail} disabled={loading}>
           <Text className="text-black text-center font-semibold text-lg">Sign Up</Text>
         </TouchableOpacity>
         <View className="flex-row justify-center mt-2">
