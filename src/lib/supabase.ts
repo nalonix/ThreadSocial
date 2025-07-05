@@ -2,8 +2,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { createClient } from '@supabase/supabase-js'
 import { AppState } from 'react-native'
 
-const supabaseUrl = process.env.REACT_NATIVE_SUPABASE_URL
-const supabaseAnonKey = process.env.REACT_NATIVE_SUPABASE_ANON_KEY
+const supabaseUrl = process.env.EXPO_PUBLIC_REACT_NATIVE_SUPABASE_URL
+const supabaseAnonKey = process.env.EXPO_PUBLIC_REACT_NATIVE_SUPABASE_ANON_KEY
 
 
 console.log('Supabase URL:', supabaseUrl)

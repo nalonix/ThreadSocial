@@ -1,6 +1,14 @@
-import { Stack } from 'expo-router';
+import { useAuth } from '@/providers/AuthProvider';
+import { Redirect, Stack } from 'expo-router';
 
-export default function ProtectedLayout() {
+export default function AuthLayout() {
+    const { isAuthenticated } = useAuth();
+
+    if (isAuthenticated) {
+        // Redirect to the main app if already authenticated
+        return <Redirect href="/(protected)/" />;
+    }
+
     return (
         <Stack 
             screenOptions={{
@@ -8,14 +16,8 @@ export default function ProtectedLayout() {
                 animation: 'slide_from_right',
             }}
         >
-            <Stack.Screen
-                name="(tabs)"
-                options={{ headerShown: false, animation: 'fade_from_bottom' }}
-            />
-            <Stack.Screen
-                name="new"
-                options={{ title: "New Thread",presentation: "modal", animation: 'slide_from_bottom' }}
-            />
+            <Stack.Screen name="signup" />
+            <Stack.Screen name="login"  />
         </Stack>
     );
 }

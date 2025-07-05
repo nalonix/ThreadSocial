@@ -3,6 +3,8 @@ import React from 'react'
 import { Link } from 'expo-router'
 import { supabase } from '@/lib/supabase';
 
+
+
 export default function signup() {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
@@ -10,6 +12,7 @@ export default function signup() {
 
 
     async function signUpWithEmail() {
+        console.log('Signing up with email:', email)
         setLoading(true)
         const {
         data: { session },
@@ -18,6 +21,7 @@ export default function signup() {
         email: email,
         password: password,
         })
+        console.log('Sign up response:', { session, error })
         if (error) Alert.alert(error.message)
         if (!session) Alert.alert('Please check your inbox for email verification!')
         setLoading(false)

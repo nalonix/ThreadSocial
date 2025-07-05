@@ -1,20 +1,27 @@
-import { Keyboard, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
+import { Alert, Keyboard, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
 import React from 'react'
 import { Link } from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { supabase } from '@/lib/supabase';
 
 export default function login() {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
+    const [loading, setLoading] = React.useState(false);
 
     // Function to handle the login logic
-    const handleLogin = () => {
-        // Here you would typically call your login API
-        console.log('Logging in with:', { email, password });
-        // Reset fields after login
-        setEmail('');
-        setPassword('');
-    }
+    async function signInWithEmail() {
+    console.log('Signing in with email:', email)
+    setLoading(true)
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    })
+    console.log('Sign in response:', { email, error })
+    if (error) Alert.alert(error.message)
+    setLoading(false)
+  }
+
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
@@ -40,7 +47,7 @@ export default function login() {
           value={password}
           onChangeText={setPassword}
         />
-        <TouchableOpacity className="bg-white rounded-lg py-3 mb-4" onPress={handleLogin}>
+        <TouchableOpacity className="bg-white rounded-lg py-3 mb-4" onPress={signInWithEmail}>
           <Text className="text-black text-center font-semibold text-lg">Login</Text>
         </TouchableOpacity>
         <View className="flex-row justify-center mt-2">
